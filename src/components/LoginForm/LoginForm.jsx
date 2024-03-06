@@ -1,14 +1,10 @@
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/operations";
+import { logIn } from "../../redux/auth/operations";
 import * as Yup from "yup";
 import { useId } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 
 const userSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, "To short")
-    .max(50, "To long")
-    .required("This is a required field"),
   email: Yup.string()
     .min(3, "To short")
     .max(50, "To long")
@@ -19,13 +15,11 @@ const userSchema = Yup.object().shape({
     .required("This is a required field"),
 });
 const initialValues = {
-  name: "",
   email: "",
   password: "",
 };
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
-  const nameId = useId();
   const emailId = useId();
   const passwordId = useId();
   return (
@@ -33,15 +27,12 @@ export const RegisterForm = () => {
       initialValues={initialValues}
       validationSchema={userSchema}
       onSubmit={(values, actions) => {
-        dispatch(register(values));
+        dispatch(logIn(values));
         actions.resetForm();
       }}
     >
       <Form>
         <div>
-          <lable htmlFor={nameId}>Username</lable>
-          <Field id={nameId} type="text" name="name" />
-          <ErrorMessage name="name" component="span" />
           <lable htmlFor={emailId}>Email</lable>
           <Field id={emailId} type="email" name="email" />
           <ErrorMessage name="email" component="span" />
@@ -49,7 +40,7 @@ export const RegisterForm = () => {
           <Field id={passwordId} type="password" name="password" />
           <ErrorMessage name="password" component="span" />
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
       </Form>
     </Formik>
   );

@@ -1,5 +1,4 @@
-import React from "react";
-import DocumentTitle from "../components/DocumentTitle/DocumentTitle";
+import DocumentTitle from "../../components/DocumentTitle/DocumentTitle";
 
 export default function Home() {
   return (
