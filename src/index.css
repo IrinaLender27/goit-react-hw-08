@@ -3,10 +3,33 @@
 }
 
 body {
-  display: flex;
+  background-color: #ddcee6;
+  max-width: 375px;
   min-width: 320px;
+  margin: 0 auto;
+  color: white;
 }
 
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1158px) {
+  body {
+    max-width: 1158px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
 button {
   cursor: pointer;
 }
@@ -14,4 +37,16 @@ button {
 ul {
   list-style: none;
   padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+a {
+  text-decoration: none;
+  color: white;
 }

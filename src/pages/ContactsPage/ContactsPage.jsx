@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoading } from "../../redux/selectors";
+import { selectLoading } from "../../redux/contacts/selectors";
 import { useEffect } from "react";
 import { ContactList } from "../../components/ContactList/ContactList";
 import { SearchBox } from "../../components/SearchBox/SearchBox";
-import { fetchContacts } from "../../redux/operations";
+import { fetchContacts } from "../../redux/contacts/operations";
 import { ContactForm } from "../../components/ContactForm/ContactForm";
-import DocumentTitle from "../../components/DocumentTitle/DocumentTitle";
+import css from "./ContactsPage.module.css";
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
@@ -14,11 +14,13 @@ export default function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <div>
-      <DocumentTitle>Your contacts</DocumentTitle>
-      <ContactForm />
+    <div className={css.contacts}>
+      <p className={css.contactsTitle}>Your contacts</p>
       <div>{isLoading && "Request in progress..."}</div>
-      <SearchBox />
+      <div className={css.contactsBox}>
+        <ContactForm />
+        <SearchBox />
+      </div>
       <ContactList />
     </div>
   );

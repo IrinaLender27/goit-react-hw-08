@@ -4,12 +4,13 @@ import { useEffect } from "react";
 import { refreshUser } from "../../redux/auth/operations";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "../Layout/Layout";
-import { RestrictedRoute } from "../RestrictedRoute/RestrictedRoute";
+import RestrictedRoute from "../RestrictedRoute";
 import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
-import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
+import PrivateRoute from "../PrivateRoute";
 import ContactsPage from "../../pages/ContactsPage/ContactsPage";
+import css from "./App.module.css";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    <>
+    <div className={css.main}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -48,7 +49,7 @@ export const App = () => {
           />
         </Route>
       </Routes>
-    </>
+    </div>
   );
 };
 export default App;

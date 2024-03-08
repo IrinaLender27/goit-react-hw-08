@@ -1,21 +1,29 @@
 .formContainer {
-  width: 345px;
+  width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 4px;
+  gap: 40px;
+  padding: 15px;
+  border: 1px solid transparent;
+  box-shadow: rgba(53, 32, 62, 0.2) 0px 9px 30px 0px;
 }
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .inputForm {
-  width: 100%;
+  outline: transparent;
   height: 35px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid #764b9f;
+  background: transparent;
+}
+.inputForm:hover {
+  border: 2px solid #4f0495;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .error {
   font-size: 12px;
@@ -26,4 +34,9 @@
   cursor: pointer;
   margin: 0 auto;
   padding: 8px;
+  background-color: #764b9f;
+}
+.label {
+  color: #4f0495;
+  font-size: 16px;
 }

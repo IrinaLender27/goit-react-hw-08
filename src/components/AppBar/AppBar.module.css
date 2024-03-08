@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 50px;
+  padding-left: 50px;
+  background-color: rgb(79, 4, 149);
+}
+.navBar {
+  padding-top: 20px;
+}

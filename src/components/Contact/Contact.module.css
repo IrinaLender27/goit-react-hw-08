@@ -2,7 +2,6 @@
   padding: 5px;
   width: 200px;
   display: flex;
-
   align-items: center;
   height: 80px;
 }
@@ -10,6 +9,10 @@
   display: flex;
   cursor: pointer;
   padding: 2px;
+  background: #4f0495;
+  border: none;
+  color: white;
+  border-radius: 4px;
 }
 .contactData {
   padding: 2px;
