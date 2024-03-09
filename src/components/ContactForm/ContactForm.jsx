@@ -6,7 +6,7 @@ import css from "./ContactForm.module.css";
 import { addContact } from "../../redux/contacts/operations";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-
+import toast from "react-hot-toast";
 const StyledButton = styled(Button)({
   width: "150px",
   margin: "0 auto",
@@ -18,13 +18,13 @@ const StyledButton = styled(Button)({
   border: "1px solid",
   color: "white",
   "&:hover": {
-    backgroundColor: "#764b9f",
-    borderColor: "white",
+    backgroundColor: "#a689c1",
+    border: "1px solid #4f0495",
   },
   "&:active": {
     boxShadow: "none",
-    backgroundColor: "#764b9f",
-    borderColor: "#005cbf",
+    backgroundColor: "#a689c1",
+    border: "1px solid #4f0495",
   },
   "&:focus": {
     boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
@@ -50,6 +50,7 @@ export const ContactForm = () => {
   const numberId = useId();
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
+    toast.success("Contact created ");
     actions.resetForm();
   };
   return (
