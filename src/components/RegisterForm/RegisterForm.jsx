@@ -6,6 +6,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import css from "./RegisterForm.module.css";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import toast from "react-hot-toast";
 const StyledButton = styled(Button)({
   width: "150px",
   margin: "0 auto",
@@ -59,6 +60,7 @@ export const RegisterForm = () => {
       validationSchema={userSchema}
       onSubmit={(values, actions) => {
         dispatch(register(values));
+        toast.success("Registration is successful");
         actions.resetForm();
       }}
     >
